@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:staticResources="clr-namespace:OpcionalPractica.StaticResources"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="OpcionalPractica.Views.HomePage">
+
+
+    <Grid Style="{StaticResource IconLabelStyle}>                     
+        
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLabelStyle}" Text="{Binding Source = {x:Static staticResources:Titles.QuickHelp}}"/>
+            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" HeightRequest="20" Source="{Binding Source = {x:Static staticResources:Icons.Search}}"/>
+
+            <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsLayout="HorizontalList" HeightRequest="120" ItemsSource="{Binding Source = {x:Static staticResources:Data.QuickHelpItems}}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Margin="10,15,10,0"  HeightRequest="30" WidthRequest="30">
+                                <Image Source="{Binding Image}" Aspect="AspectFill" Margin="-5"/>
+                            </Frame>
+                            <Label Text="{Binding Title}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HeaderLabelStyle}" Text="{Binding Source = {x:Static staticResources:Titles.DailyMeditations}}"/>
+
+            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="100" BindingContext="{Binding Source = {x:Static staticResources:Data.MainDailyMeditationItem}}">
+                <AbsoluteLayout>
+                <Image Source="{Binding PreferredImage}" Aspect="AspectFill" HeightRequest="150" WidthRequest="350" AbsoluteLayout.LayoutBounds="0,0,1,1" Margin="-20"/>
+                <Label Text="{Binding Title}" Style="{StaticResource HeaderLabelStyle}" AbsoluteLayout.LayoutBounds="0,0.8" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label Text="{Binding DurationLabel}" AbsoluteLayout.LayoutBounds="0,1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                </AbsoluteLayout>
+            </Frame>
+
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource HeaderLabelStyle}"
+                   Text="{Binding Source = {x:Static staticResources:Titles.NewMusic}}"/>
+            <Label Grid.Row="4" Grid.Column="1" HorizontalOptions="End" Margin="5" TextColor="DarkGray" Text="{Binding Source = {x:Static staticResources:Options.ViewAll}}"/>
+            <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  ItemsSource="{Binding Source = {x:Static staticResources:Data.DailyMeditationItems}}" SelectedItem="{Binding SelectedMeditationItem}" SelectionMode="Single" HorizontalOptions="CenterAndExpand" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <AbsoluteLayout Padding="5">
+                            <Frame HasShadow="True" BackgroundColor="White" CornerRadius="15" IsClippedToBounds="True" WidthRequest="115">
+                                <StackLayout Padding="0">
+
+                                <Label Text="{Binding Title}" Style="{StaticResource HeaderLabelStyle}"/>
+
+                                <Label Text="{Binding DurationLabel}"/>
+
+                            </StackLayout>
+                            </Frame>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+</ContentPage>

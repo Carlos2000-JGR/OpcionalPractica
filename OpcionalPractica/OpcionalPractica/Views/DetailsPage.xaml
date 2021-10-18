@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:OpcionalPractica.ViewModels" 
+             xmlns:staticResources="clr-namespace:OpcionalPractica.StaticResources"
+             x:Class="OpcionalPractica.Views.DetailsPage"
+             x:DataType="viewmodels:DetailsPageViewModel"
+             Title="{Binding DailyMeditationItem.Title}">
+    
+    
+            <ContentPage.Content>
+            <Grid Style="{StaticResource IconLabelStyle}">
+            
+            
+            <CarouselViewStyle= Style ="{StaticResource IconLabelStyle}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Image Source="{Binding}" Aspect="AspectFill"/>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+                
+                
+                
+            </CarouselViewStyle>
+            <IndicatorView Style="{StaticResource IconLabelStyle}"/>
+            <ImageButton Grid.Row="1" Grid.Column="0" Style="{StaticResource HeaderLabelStyle}" Source="{Binding Source = {x:Static staticResources:Icons.Export}}"/>
+            <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource DetailsSeparatorStyles}"/>
+            <BoxView Grid.Row="1" Grid.Column="3" Style="{StaticResource DetailsSeparatorStyles}"/>
+            <ImageButton Grid.Row="1" Grid.Column="4" Style="{StaticResource HeaderLabelStyle}" Source="{Binding Source = {x:Static staticResources:Icons.Favorite}}"/>
+            <ImageButton Grid.Row="1" Grid.Column="2" Style="{StaticResource HeaderLabelStyle}" Source="{Binding Source = {x:Static staticResources:Icons.AddToCalendar}}"/>
+            
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Style="{StaticResource DetailLabelsCommonStyles}" TextColor="#02f5a8" FontSize="Title" HeightRequest="60" Margin="0,-10,-10,-10" Text="{Binding DailyMeditationItem.Title}"/>
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Style="{StaticResource DetailLabelsCommonStyles}" TextColor="Gray" FontSize="Body" Text="{Binding DailyMeditationItem.Description}"/>
+            </Grid>
+                
+                
+    </ContentPage.Content>
+</ContentPage>

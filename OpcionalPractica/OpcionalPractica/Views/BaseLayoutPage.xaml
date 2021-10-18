@@ -1,0 +1,34 @@
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="ChefingApp.Views.BaseLayoutPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+            xmlns:local="clr-namespace:OpcionalPractica.Views"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.IsSwipePagingEnabled="False"
+             NavigationPage.HasNavigationBar="False"
+            Style="{StaticResource SideBackgroundStyle}">
+
+    <NavigationPage Title="{Binding Source = {x:Static staticResources:Options.TabIcon1}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.TabIcon1}}">
+        <x:Arguments>
+            <local:HomePage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage  Title="{Binding Source = {x:Static staticResources:Options.TabIcon2}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.TabIcon2}}" >
+        <x:Arguments>
+            <local:DetailsPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="{Binding Source = {x:Static staticResources:Options.TabIcon3}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.TabIcon3}}" >
+        <x:Arguments>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="{Binding Source = {x:Static staticResources:Options.TabIcon4}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.TabIcon4}}" >
+        <x:Arguments>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="{Binding Source = {x:Static staticResources:Options.TabIcon5}}" IconImageSource="{Binding Source = {x:Static staticResources:Icons.TabIcon5}}" >
+        <x:Arguments>
+        </x:Arguments>
+    </NavigationPage>
+
+</TabbedPage>
