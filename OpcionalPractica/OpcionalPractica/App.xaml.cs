@@ -1,4 +1,5 @@
-﻿using OpcionalPractica.StaticResources;
+﻿using ChefingApp.Views;
+using OpcionalPractica.StaticResources;
 using OpcionalPractica.Views;
 using Prism;
 using Prism.Ioc;
@@ -20,9 +21,10 @@ namespace OpcionalPractica
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<BaseLayoutPage>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<HomePage>();
-            containerRegistry.RegisterForNavigation<DetailsPage>();
+            containerRegistry.RegisterForNavigation<Views.HomePage>();
+            containerRegistry.RegisterForNavigation<Views.DetailsPage>();
         }
     }
 }
